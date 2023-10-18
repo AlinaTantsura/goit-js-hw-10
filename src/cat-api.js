@@ -1,0 +1,12 @@
+function fetchBreeds() {
+   return fetch('https://api.thecatapi.com/v1/breeds')
+        .then(resp => {
+            if (!resp.ok) {
+                throw new Error();
+            }
+            return resp.json();
+        }
+)};
+     
+
+export { fetchBreeds };

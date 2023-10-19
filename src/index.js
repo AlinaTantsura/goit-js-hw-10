@@ -10,9 +10,26 @@ const error = document.querySelector('.error');
 loader.classList.add('hidden-part');
 error.classList.add('hidden-part');
 // selectCat.classList.add('hidden-part');
+if(!selectCat.children.length){
+    selectCat.classList.add('hidden-part');
+    loader.classList.remove('hidden-part');
+}
+else{
+    loader.classList.add('hidden-part');
+    selectCat.classList.remove('hidden-part');
+}
 fetchBreeds().then(arr => {
         const markup = arr.map(({ id, name } = {}) => `<option value="${id}">${name}</option>`).join('');
         selectCat.insertAdjacentHTML('afterbegin', markup);
+        
+        if(!selectCat.children.length){
+            selectCat.classList.add('hidden-part');
+            loader.classList.remove('hidden-part');
+        }
+        else{
+            loader.classList.add('hidden-part');
+            selectCat.classList.remove('hidden-part');
+        }
         selectCat.addEventListener('change', handleSelect);
         function handleSelect(){
             const needBreed = arr.find(item => item.id === selectCat.value);
@@ -22,10 +39,20 @@ fetchBreeds().then(arr => {
                      catInfo.innerHTML = `<img src="${resp[0].url}" alt="cat" width="500">
                      <h2>${needBreed.name}</h2>
                      <h3>${needBreed.description}</h3>
-                     <h3>Temperament: ${needBreed.temperament}</h3>`
+                     <h3>Temperament: ${needBreed.temperament}</h3>`;
+                     if(!catInfo.children.length){
+                        catInfo.classList.add('hidden-part');
+                        loader.classList.remove('hidden-part');
+                    }
+                    else{
+                        loader.classList.add('hidden-part');
+                        catInfo.classList.remove('hidden-part');
+                    }
                     console.log(resp[0])})
-                .catch(err => console.log(err));}    })
-    .catch(err => console.log(err));
+                .catch(() => {error.classList.remove('hidden-part');
+                            loader.classList.add('hidden-part')});}    })
+    .catch(() => {error.classList.remove('hidden-part');
+    loader.classList.add('hidden-part')});
     
       
 

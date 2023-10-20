@@ -7,8 +7,57 @@ body {
     color: #2f2f37;
     max-width: 960px;
     padding: 16px;
+    font-weight: 400;
+    font-size: 20px;
   }
+h1,h2,h3{
+  margin: 0;
+}
 
 .hidden-part{
     display: none;
 }  
+
+.cat-info{
+  height: 500px;
+  margin-top: 30px;
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: 400px 500px;
+}
+.img-box{
+  width: 400px;
+  height: 350px;
+}
+.cat-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.accent-temp{
+  font-weight: 600;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #742525;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

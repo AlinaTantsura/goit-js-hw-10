@@ -43,8 +43,8 @@ fetchBreeds().then(arr => {
                 })
                 .catch(() => {
                     Notify.failure('Oops! Something went wrong! Try reloading the page!');
-                            loader.classList.add('hidden-part')});}    })
+                            loader.style.display = 'none';});}    })
     .catch(() => {Notify.failure('Oops! Something went wrong! Try reloading the page!');
-        loader.classList.add('hidden-part')
+        loader.style.display = 'none';
     }
     );

@@ -48,9 +48,12 @@ h1,h2,h3{
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 50%;
+  left: 50%;
 }
+.hidden-part{
+  display: none;
+} 
 
 @keyframes rotation {
   0% {

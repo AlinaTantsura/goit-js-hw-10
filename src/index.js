@@ -13,11 +13,11 @@ fetchBreeds().then(arr => {
         const markup = arr.map(({ id, name } = {}) => `<option value="${id}">${name}</option>`).join('');
     selectCat.insertAdjacentHTML('afterbegin', markup);
     loader.classList.add('hidden-part');
+
     new SlimSelect({
         select: "#breed-select",
     });
     // selectCat.classList.remove('hidden-part');
-        
     selectCat.addEventListener('change', handleSelect);
     
     function handleSelect() {
